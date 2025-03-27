@@ -7,38 +7,45 @@
 
 import Foundation
 
-struct HeroEntity: Decodable{
+struct HeroEntity: Decodable {
     let id: Int
     let name: String
-    let powerstats:Powerstats
     let appearance: Appearance
-    let biography: Biography
-    let images: Image
+    let images: HeroImage
+    let powerstats: Powerstats?
+    let biography: Biography?
     
-    struct Powerstats: Decodable{
-        let intelligence: Int
-        let strength: Int
-        let speed: Int
-        let durability: Int
-        let power: Int
-        let combat: Int
+    struct Biography: Decodable {
+        let fullName: String?
+        let alterEgos: String?
+        let aliases: [String]?
+        let placeOfBirth: String?
+        let firstAppearance: String?
+    }
+
+    
+    struct Powerstats: Decodable {
+        let intelligence: Int?
+        let strength: Int?
+        let speed: Int?
+        let durability: Int?
+        let power: Int?
+        let combat: Int?
     }
     
-    struct Appearance: Decodable{
-        let gender: String
-        let race: String
-        let eyeColor: String
-        let hairColor: String
+    var heroImageUrl: URL? {
+        URL(string: images.sm)
     }
-    
-    struct Biography: Decodable{
-        let fullName: String
-        let alterEgos: String
-        let publisher: String
+
+    struct Appearance: Decodable {
+        let race: String?
+        let gender: String?
+        let eyeColor: String?
+        let hairColor: String?
     }
-    
-    struct Image: Decodable{
+
+    struct HeroImage: Decodable {
+        let sm: String
         let md: String
     }
 }
-

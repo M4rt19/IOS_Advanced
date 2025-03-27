@@ -7,15 +7,20 @@
 
 import Foundation
 
-struct HeroListModel{
+struct HeroListModel: Identifiable {
     let id: Int
-    let images: HeroImage
-    let name: String
-    var imageUrl: URL?{
-        URL(string: images.md)
-    }
-    
-    struct HeroImage: Decodable{
-        let md: String
-    }
+    let title: String
+    let description: String
+    let heroImage: URL?
+    let gender: String?
+    let eyeColor: String?
+    let hairColor: String?
+    let intelligence: Int
+    let strength: Int?
+    let speed: Int?
+    let durability: Int?
+    let power: Int?
+    let combat: Int?
+    let placeOfBirth: String?
+    let firstAppearance: String?
 }
