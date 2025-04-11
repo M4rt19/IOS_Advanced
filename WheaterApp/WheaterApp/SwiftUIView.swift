@@ -82,7 +82,6 @@ struct SwiftUIView: View {
                 Spacer()
                 
                
-            }
         }.onAppear {
             Task {
                 try await viewModel.getData(for: selectedCity)
