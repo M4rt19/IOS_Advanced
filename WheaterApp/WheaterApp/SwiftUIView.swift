@@ -81,7 +81,19 @@ struct SwiftUIView: View {
                 
                 Spacer()
                 
-               
+                Button {
+                    
+                    
+                } label: {
+                    Text("Get info")
+                        .font(.headline)
+                        .foregroundStyle(.white)
+                        .frame(width: 200, height: 40)
+                        .background(.green)
+                        .cornerRadius(17)
+                }
+                .padding(.bottom, 20)
+            }
         }.onAppear {
             Task {
                 try await viewModel.getData(for: selectedCity)
